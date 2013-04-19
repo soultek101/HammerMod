@@ -1,2 +1,2 @@
-HammerMod
-=========
+This is HammerMod!
+==================
