@@ -41,6 +41,52 @@ public class ItemHammer extends ItemTool {
             }
             world.setBlock(x, y, z, 0);
             return true;
+            
+        } else if (world.getBlockId(x, y, z) == Block.oreIron.blockID) {
+            
+            ItemStack itemstack1 = new ItemStack(HammerMod.chunkIron, 8);
+            double xrand = (double)(world.rand.nextFloat() * 0.7F) + (double)(0.3F) * 0.5D;
+            double yrand = (double)(world.rand.nextFloat() * 0.7F) + (double)(0.3F) * 0.5D;
+            double zrand = (double)(world.rand.nextFloat() * 0.7F) + (double)(0.3F) * 0.5D;
+            EntityItem itemDrop = new EntityItem(world, (double)x + xrand, (double)y + yrand, (double)z + zrand, itemstack1);
+            itemDrop.delayBeforeCanPickup = 10;
+            if (!entityplayer.capabilities.isCreativeMode) {
+            
+                world.spawnEntityInWorld(itemDrop);
+            }
+            world.setBlock(x, y, z, 0);
+            return true;
+            
+        } else if (world.getBlockId(x, y, z) == Block.oreGold.blockID){
+            
+            ItemStack itemstack1 = new ItemStack(HammerMod.chunkGold, 8);
+            double xrand = (double)(world.rand.nextFloat() * 0.7F) + (double)(0.3F) * 0.5D;
+            double yrand = (double)(world.rand.nextFloat() * 0.7F) + (double)(0.3F) * 0.5D;
+            double zrand = (double)(world.rand.nextFloat() * 0.7F) + (double)(0.3F) * 0.5D;
+            EntityItem itemDrop = new EntityItem(world, (double)x + xrand, (double)y + yrand, (double)z + zrand, itemstack1);
+            itemDrop.delayBeforeCanPickup = 10;
+            if (!entityplayer.capabilities.isCreativeMode) {
+            
+                world.spawnEntityInWorld(itemDrop);
+            }
+            world.setBlock(x, y, z, 0);
+            return true;
+            
+        } else if (world.getBlockId(x, y, z) == Block.oreDiamond.blockID){
+            
+            ItemStack itemstack1 = new ItemStack(HammerMod.chunkDiamond, 8);
+            double xrand = (double)(world.rand.nextFloat() * 0.7F) + (double)(0.3F) * 0.5D;
+            double yrand = (double)(world.rand.nextFloat() * 0.7F) + (double)(0.3F) * 0.5D;
+            double zrand = (double)(world.rand.nextFloat() * 0.7F) + (double)(0.3F) * 0.5D;
+            EntityItem itemDrop = new EntityItem(world, (double)x + xrand, (double)y + yrand, (double)z + zrand, itemstack1);
+            itemDrop.delayBeforeCanPickup = 10;
+            if (!entityplayer.capabilities.isCreativeMode) {
+            
+                world.spawnEntityInWorld(itemDrop);
+            }
+            world.setBlock(x, y, z, 0);
+            return true;
+            
         } else {
             
             return false;

@@ -38,6 +38,9 @@ public class HammerMod {
     
     public static Item chunkCoal;
     public static Item chunkCharcoal;
+    public static Item chunkIron;
+    public static Item chunkGold;
+    public static Item chunkDiamond;
  
     @PreInit
     public void preInit(FMLPreInitializationEvent event) {
@@ -57,6 +60,9 @@ public class HammerMod {
         
         chunkCoal = new ChunkCoal(8306);
         chunkCharcoal = new ChunkCharcoal(8307);
+        chunkIron = new ChunkIron(8308);
+        chunkGold = new ChunkGold(8309);
+        chunkDiamond = new ChunkDiamond(8310);
         
         LanguageRegistry.addName(hammerWood, "Wooden Hammer");
         LanguageRegistry.addName(hammerStone, "Stone Hammer");
@@ -66,6 +72,9 @@ public class HammerMod {
         
         LanguageRegistry.addName(chunkCoal, "Coal Chunk");
         LanguageRegistry.addName(chunkCharcoal, "Charcoal Chunk");
+        LanguageRegistry.addName(chunkIron, "Iron Chunk");
+        LanguageRegistry.addName(chunkGold, "Gold Chunk");
+        LanguageRegistry.addName(chunkDiamond, "Diamond Chunk");
         
         GameRegistry.addRecipe(new ItemStack(HammerMod.hammerWood, 1), new Object[] {"#I#", "#I#", " I ", Character.valueOf('#'), Block.planks, Character.valueOf('I'), Item.stick});
         GameRegistry.addRecipe(new ItemStack(HammerMod.hammerStone, 1), new Object[] {"#I#", "#I#", " I ", Character.valueOf('#'), Block.cobblestone, Character.valueOf('I'), Item.stick});
@@ -93,6 +102,9 @@ public class HammerMod {
         
         OreDictionary.registerOre("chunkCoal", new ItemStack(chunkCoal));
         OreDictionary.registerOre("chunkCharcoal", new ItemStack(chunkCharcoal));
+        OreDictionary.registerOre("chunkIron", new ItemStack(chunkIron));
+        OreDictionary.registerOre("chunkGold", new ItemStack(chunkGold));
+        OreDictionary.registerOre("chunkDiamond", new ItemStack(chunkDiamond));
         
         MinecraftForge.setToolClass(hammerWood, "pickaxe", 0);
         MinecraftForge.setToolClass(hammerStone, "pickaxe", 1);
