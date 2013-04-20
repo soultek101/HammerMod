@@ -1,21 +1,18 @@
-{
-  "modinfoversion": 2,
-  "modlist": [{
-    "modid": "HammerMod",
-    "name": "HammerMod",
-    "description": "Smash coal into chunks for better efficiency!",
-    "version": "1.0",
-    "mcversion": "1.5.1",
-    "url": "",
-    "updateUrl": "",
-    "authors": [ "konals" ],
-    "credits": "",
-    "logoFile": "",
-    "screenshots": [ "" ],
-    "parent": "",
-    "requiredMods": [ "Forge" ],
-    "dependencies": [],
-    "dependants": [],
-    "useDependencyInformation": "false"
-  }]
-}
+[{
+  "modid": "HammerMod",
+  "name": "HammerMod",
+  "description": "Smash coal into chunks for better efficiency!",
+  "version": "1.2",
+  "mcversion": "1.5.1",
+  "url": "",
+  "updateUrl": "",
+  "authors": [ "konals" ],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [ "" ],
+  "parent": "",
+  "requiredMods": [ "Forge" ],
+  "dependencies": [],
+  "dependants": [],
+  "useDependencyInformation": "false"
+}]

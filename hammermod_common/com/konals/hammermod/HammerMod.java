@@ -8,6 +8,21 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.oredict.OreDictionary;
+
+import com.konals.hammermod.handler.HammerModFuelHandler;
+import com.konals.hammermod.helper.LogHelper;
+import com.konals.hammermod.item.ChunkCharcoal;
+import com.konals.hammermod.item.ChunkCoal;
+import com.konals.hammermod.item.ChunkDiamond;
+import com.konals.hammermod.item.ChunkGold;
+import com.konals.hammermod.item.ChunkIron;
+import com.konals.hammermod.item.ItemHammerDiamond;
+import com.konals.hammermod.item.ItemHammerGold;
+import com.konals.hammermod.item.ItemHammerIron;
+import com.konals.hammermod.item.ItemHammerStone;
+import com.konals.hammermod.item.ItemHammerWood;
+import com.konals.hammermod.proxy.CommonProxy;
+
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
@@ -150,7 +165,6 @@ public class HammerMod {
             GameRegistry.addRecipe(new ItemStack(HammerMod.hammerIron, 1), new Object[] {"#I#", "#I#", " I ", Character.valueOf('#'), Item.ingotIron, Character.valueOf('I'), Item.stick});
             GameRegistry.addRecipe(new ItemStack(HammerMod.hammerGold, 1), new Object[] {"#I#", "#I#", " I ", Character.valueOf('#'), Item.ingotGold, Character.valueOf('I'), Item.stick});
             GameRegistry.addRecipe(new ItemStack(HammerMod.hammerDiamond, 1), new Object[] {"#I#", "#I#", " I ", Character.valueOf('#'), Item.diamond, Character.valueOf('I'), Item.stick});
-            LogHelper.log(Level.INFO, "Balkon's Weapon Mod not detected, continuing on as normal.");
         }
     }
     

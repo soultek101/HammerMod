@@ -1,4 +1,4 @@
-package com.konals.hammermod;
+package com.konals.hammermod.item;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -8,6 +8,8 @@ import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTool;
 import net.minecraft.world.World;
+
+import com.konals.hammermod.HammerMod;
 
 public class ItemHammer extends ItemTool {
 

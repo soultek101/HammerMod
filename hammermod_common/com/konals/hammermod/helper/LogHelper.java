@@ -1,4 +1,4 @@
-package com.konals.hammermod;
+package com.konals.hammermod.helper;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
