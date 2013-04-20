@@ -111,4 +111,10 @@ public class ItemHammer extends ItemTool {
         return itemStack;
     }
     
+    @Override
+    public boolean doesContainerItemLeaveCraftingGrid(ItemStack itemStack) {
+
+        return false;
+    }
+    
 }

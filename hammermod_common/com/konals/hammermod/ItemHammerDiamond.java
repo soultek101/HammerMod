@@ -20,10 +20,4 @@ public class ItemHammerDiamond extends ItemHammer {
         
         iconIndex = iconRegister.registerIcon("hammermod:hammerdiamond");
     }
-    
-    @Override
-    public boolean doesContainerItemLeaveCraftingGrid(ItemStack itemStack) {
-
-        return false;
-    }
 }
