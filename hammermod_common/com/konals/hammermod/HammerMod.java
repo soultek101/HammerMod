@@ -1,11 +1,14 @@
 package com.konals.hammermod;
 
+import java.util.logging.Level;
+
 import net.minecraft.block.Block;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.oredict.OreDictionary;
+import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -76,12 +79,6 @@ public class HammerMod {
         LanguageRegistry.addName(chunkGold, "Gold Chunk");
         LanguageRegistry.addName(chunkDiamond, "Diamond Chunk");
         
-        GameRegistry.addRecipe(new ItemStack(HammerMod.hammerWood, 1), new Object[] {"#I#", "#I#", " I ", Character.valueOf('#'), Block.planks, Character.valueOf('I'), Item.stick});
-        GameRegistry.addRecipe(new ItemStack(HammerMod.hammerStone, 1), new Object[] {"#I#", "#I#", " I ", Character.valueOf('#'), Block.cobblestone, Character.valueOf('I'), Item.stick});
-        GameRegistry.addRecipe(new ItemStack(HammerMod.hammerIron, 1), new Object[] {"#I#", "#I#", " I ", Character.valueOf('#'), Item.ingotIron, Character.valueOf('I'), Item.stick});
-        GameRegistry.addRecipe(new ItemStack(HammerMod.hammerGold, 1), new Object[] {"#I#", "#I#", " I ", Character.valueOf('#'), Item.ingotGold, Character.valueOf('I'), Item.stick});
-        GameRegistry.addRecipe(new ItemStack(HammerMod.hammerDiamond, 1), new Object[] {"#I#", "#I#", " I ", Character.valueOf('#'), Item.diamond, Character.valueOf('I'), Item.stick});
-        
         GameRegistry.addShapelessRecipe(new ItemStack(chunkCoal, 8), new Object[] {new ItemStack(HammerMod.hammerWood, 1, Short.MAX_VALUE), new ItemStack(Item.coal, 1)});
         GameRegistry.addShapelessRecipe(new ItemStack(chunkCoal, 8), new Object[] {new ItemStack(HammerMod.hammerStone, 1, Short.MAX_VALUE), new ItemStack(Item.coal, 1)});
         GameRegistry.addShapelessRecipe(new ItemStack(chunkCoal, 8), new Object[] {new ItemStack(HammerMod.hammerIron, 1, Short.MAX_VALUE), new ItemStack(Item.coal, 1)});
@@ -94,11 +91,30 @@ public class HammerMod {
         GameRegistry.addShapelessRecipe(new ItemStack(chunkCharcoal, 8), new Object[] {new ItemStack(HammerMod.hammerGold, 1, Short.MAX_VALUE), new ItemStack(Item.coal, 1, 1)});
         GameRegistry.addShapelessRecipe(new ItemStack(chunkCharcoal, 8), new Object[] {new ItemStack(HammerMod.hammerDiamond, 1, Short.MAX_VALUE), new ItemStack(Item.coal, 1, 1)});
         
+        GameRegistry.addShapelessRecipe(new ItemStack(chunkIron, 8), new Object[] {new ItemStack(HammerMod.hammerStone, 1, Short.MAX_VALUE), new ItemStack(Block.oreIron, 1)});
+        GameRegistry.addShapelessRecipe(new ItemStack(chunkIron, 8), new Object[] {new ItemStack(HammerMod.hammerIron, 1, Short.MAX_VALUE), new ItemStack(Block.oreIron, 1)});
+        GameRegistry.addShapelessRecipe(new ItemStack(chunkIron, 8), new Object[] {new ItemStack(HammerMod.hammerDiamond, 1, Short.MAX_VALUE), new ItemStack(Block.oreIron, 1)});
+        
+        GameRegistry.addShapelessRecipe(new ItemStack(chunkGold, 8), new Object[] {new ItemStack(HammerMod.hammerIron, 1, Short.MAX_VALUE), new ItemStack(Block.oreGold, 1)});
+        GameRegistry.addShapelessRecipe(new ItemStack(chunkGold, 8), new Object[] {new ItemStack(HammerMod.hammerDiamond, 1, Short.MAX_VALUE), new ItemStack(Block.oreGold, 1)});
+        
+        GameRegistry.addShapelessRecipe(new ItemStack(chunkDiamond, 8), new Object[] {new ItemStack(HammerMod.hammerIron, 1, Short.MAX_VALUE), new ItemStack(Block.oreDiamond, 1)});
+        GameRegistry.addShapelessRecipe(new ItemStack(chunkDiamond, 8), new Object[] {new ItemStack(HammerMod.hammerDiamond, 1, Short.MAX_VALUE), new ItemStack(Block.oreDiamond, 1)});
+        
         GameRegistry.addShapelessRecipe(new ItemStack(Item.coal, 1), new Object[] {new ItemStack(chunkCoal, 1), new ItemStack(chunkCoal, 1), new ItemStack(chunkCoal, 1),
             new ItemStack(chunkCoal, 1), new ItemStack(chunkCoal, 1), new ItemStack(chunkCoal, 1), new ItemStack(chunkCoal, 1), new ItemStack(chunkCoal, 1)});
         
         GameRegistry.addShapelessRecipe(new ItemStack(Item.coal, 1, 1), new Object[] {new ItemStack(chunkCharcoal, 1), new ItemStack(chunkCharcoal, 1), new ItemStack(chunkCharcoal, 1),
             new ItemStack(chunkCharcoal, 1), new ItemStack(chunkCharcoal, 1), new ItemStack(chunkCharcoal, 1), new ItemStack(chunkCharcoal, 1), new ItemStack(chunkCharcoal, 1)});
+        
+        GameRegistry.addShapelessRecipe(new ItemStack(Block.oreIron, 1), new Object[] {new ItemStack(chunkIron, 1), new ItemStack(chunkIron, 1), new ItemStack(chunkIron, 1),
+            new ItemStack(chunkIron, 1), new ItemStack(chunkIron, 1), new ItemStack(chunkIron, 1), new ItemStack(chunkIron, 1), new ItemStack(chunkIron, 1)});
+        
+        GameRegistry.addShapelessRecipe(new ItemStack(Block.oreGold, 1), new Object[] {new ItemStack(chunkGold, 1), new ItemStack(chunkGold, 1), new ItemStack(chunkGold, 1),
+            new ItemStack(chunkGold, 1), new ItemStack(chunkGold, 1), new ItemStack(chunkGold, 1), new ItemStack(chunkGold, 1), new ItemStack(chunkGold, 1)});
+        
+        GameRegistry.addShapelessRecipe(new ItemStack(Block.oreDiamond, 1), new Object[] {new ItemStack(chunkDiamond, 1), new ItemStack(chunkDiamond, 1), new ItemStack(chunkDiamond, 1),
+            new ItemStack(chunkDiamond, 1), new ItemStack(chunkDiamond, 1), new ItemStack(chunkDiamond, 1), new ItemStack(chunkDiamond, 1), new ItemStack(chunkDiamond, 1)});
         
         OreDictionary.registerOre("chunkCoal", new ItemStack(chunkCoal));
         OreDictionary.registerOre("chunkCharcoal", new ItemStack(chunkCharcoal));
@@ -119,6 +135,23 @@ public class HammerMod {
     @PostInit
     public void postInit(FMLPostInitializationEvent event) {
         
+        if(Loader.isModLoaded("weaponmod")) {
+            
+            GameRegistry.addRecipe(new ItemStack(HammerMod.hammerWood, 1), new Object[] {" I ", "#I#", "#I#", Character.valueOf('#'), Block.planks, Character.valueOf('I'), Item.stick});
+            GameRegistry.addRecipe(new ItemStack(HammerMod.hammerStone, 1), new Object[] {" I ", "#I#", "#I#", Character.valueOf('#'), Block.cobblestone, Character.valueOf('I'), Item.stick});
+            GameRegistry.addRecipe(new ItemStack(HammerMod.hammerIron, 1), new Object[] {" I ", "#I#", "#I#", Character.valueOf('#'), Item.ingotIron, Character.valueOf('I'), Item.stick});
+            GameRegistry.addRecipe(new ItemStack(HammerMod.hammerGold, 1), new Object[] {" I ", "#I#", "#I#", Character.valueOf('#'), Item.ingotGold, Character.valueOf('I'), Item.stick});
+            GameRegistry.addRecipe(new ItemStack(HammerMod.hammerDiamond, 1), new Object[] {" I ", "#I#", "#I#", Character.valueOf('#'), Item.diamond, Character.valueOf('I'), Item.stick});
+            LogHelper.log(Level.INFO, "Balkon's Weapon Mod detected, flipping hammermod hammer recipe for compatibility!");
+        } else {
+            
+            GameRegistry.addRecipe(new ItemStack(HammerMod.hammerWood, 1), new Object[] {"#I#", "#I#", " I ", Character.valueOf('#'), Block.planks, Character.valueOf('I'), Item.stick});
+            GameRegistry.addRecipe(new ItemStack(HammerMod.hammerStone, 1), new Object[] {"#I#", "#I#", " I ", Character.valueOf('#'), Block.cobblestone, Character.valueOf('I'), Item.stick});
+            GameRegistry.addRecipe(new ItemStack(HammerMod.hammerIron, 1), new Object[] {"#I#", "#I#", " I ", Character.valueOf('#'), Item.ingotIron, Character.valueOf('I'), Item.stick});
+            GameRegistry.addRecipe(new ItemStack(HammerMod.hammerGold, 1), new Object[] {"#I#", "#I#", " I ", Character.valueOf('#'), Item.ingotGold, Character.valueOf('I'), Item.stick});
+            GameRegistry.addRecipe(new ItemStack(HammerMod.hammerDiamond, 1), new Object[] {"#I#", "#I#", " I ", Character.valueOf('#'), Item.diamond, Character.valueOf('I'), Item.stick});
+            LogHelper.log(Level.INFO, "Balkon's Weapon Mod not detected, continuing on as normal.");
+        }
     }
     
 }

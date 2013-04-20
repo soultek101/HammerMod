@@ -3,7 +3,6 @@ package com.konals.hammermod;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.EnumToolMaterial;
-import net.minecraft.item.ItemStack;
 
 public class ItemHammerDiamond extends ItemHammer {
     
