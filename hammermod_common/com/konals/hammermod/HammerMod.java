@@ -10,8 +10,6 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.oredict.OreDictionary;
 
 import com.konals.hammermod.block.BlockBloomeryBrick;
-import com.konals.hammermod.block.BlockBloomeryCore;
-import com.konals.hammermod.block.BlockBloomeryDummy;
 import com.konals.hammermod.handler.HammerModFuelHandler;
 import com.konals.hammermod.helper.LogHelper;
 import com.konals.hammermod.item.ChunkCharcoal;
@@ -63,8 +61,6 @@ public class HammerMod {
     public static Item chunkGold;
     public static Item chunkDiamond;
 
-    public static Block bloomeryCore = null;
-    public static Block bloomeryDummy = null;
     public static Block bloomeryBrick = null;
 
     @PreInit
@@ -95,8 +91,6 @@ public class HammerMod {
         chunkGold = new ChunkGold(8309);
         chunkDiamond = new ChunkDiamond(8310);
 
-        bloomeryCore = new BlockBloomeryCore(2700);
-        bloomeryDummy = new BlockBloomeryDummy(2701);
         bloomeryBrick = new BlockBloomeryBrick(2702);
 
         LanguageRegistry.addName(hammerWood, "Wooden Hammer");
@@ -111,17 +105,11 @@ public class HammerMod {
         LanguageRegistry.addName(chunkGold, "Gold Chunk");
         LanguageRegistry.addName(chunkDiamond, "Diamond Chunk");
 
-        LanguageRegistry.addName(bloomeryCore, "Bloomery Core");
-        LanguageRegistry.addName(bloomeryDummy, "Bloomery Dummy");
         LanguageRegistry.addName(bloomeryBrick, "Bloomery Brick");
 
         LanguageRegistry.instance().addStringLocalization("bloomery.container.bloomery", "Bloomery");
 
-        GameRegistry.registerBlock(bloomeryCore, "blockBloomeryCore");
-        GameRegistry.registerBlock(bloomeryDummy, "blockBloomeryDummy");
         GameRegistry.registerBlock(bloomeryBrick, "blockBloomeryBrick");
-
-        //GameRegistry.addRecipe(new ItemStack(bloomeryCore, 1), "XXX", "X X", "XXX", 'X', HammerMod.bloomeryBrick);
 
         GameRegistry.addShapelessRecipe(new ItemStack(chunkCoal, 8), new Object[] {
                 new ItemStack(HammerMod.hammerWood, 1, Short.MAX_VALUE), new ItemStack(Item.coal, 1) });
@@ -200,7 +188,6 @@ public class HammerMod {
         MinecraftForge.setToolClass(hammerDiamond, "pickaxe", 3);
 
         GameRegistry.registerFuelHandler(new HammerModFuelHandler());
-        NetworkRegistry.instance().registerGuiHandler(this, proxy);
 
     }
 
