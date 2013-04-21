@@ -6,7 +6,6 @@ import net.minecraft.block.Block;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.oredict.OreDictionary;
 
@@ -71,11 +70,11 @@ public class HammerMod {
     @PreInit
     public void preInit(FMLPreInitializationEvent event) {
 
-        Configuration configFile = new Configuration(event.getSuggestedConfigurationFile());
+        /*Configuration configFile = new Configuration(event.getSuggestedConfigurationFile());
         configFile.load();
 
         if (configFile.hasChanged())
-            configFile.save();
+            configFile.save();*/
     }
 
     @Init
@@ -122,7 +121,7 @@ public class HammerMod {
         GameRegistry.registerBlock(bloomeryDummy, "blockBloomeryDummy");
         GameRegistry.registerBlock(bloomeryBrick, "blockBloomeryBrick");
 
-        GameRegistry.addRecipe(new ItemStack(bloomeryCore, 1), "XXX", "X X", "XXX", 'X', HammerMod.bloomeryBrick);
+        //GameRegistry.addRecipe(new ItemStack(bloomeryCore, 1), "XXX", "X X", "XXX", 'X', HammerMod.bloomeryBrick);
 
         GameRegistry.addShapelessRecipe(new ItemStack(chunkCoal, 8), new Object[] {
                 new ItemStack(HammerMod.hammerWood, 1, Short.MAX_VALUE), new ItemStack(Item.coal, 1) });

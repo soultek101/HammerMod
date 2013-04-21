@@ -18,7 +18,6 @@ public class BlockBloomeryBrick extends Block {
         setCreativeTab(CreativeTabs.tabDecorations);
     }
     
-    @Override
     public void registerIcons(IconRegister iconRegister) {
 
         blockIcon = iconRegister.registerIcon("hammermod:bloombrick");

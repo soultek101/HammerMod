@@ -12,7 +12,6 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.Icon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -23,20 +22,11 @@ import com.konals.hammermod.tileentity.TileEntityBloomeryCore;
 public class BlockBloomeryCore extends BlockContainer {
 
     public static final int META_ISACTIVE = 0x00000008;
-
     public static final int MASK_DIR = 0x00000007;
-
     public static final int META_DIR_NORTH = 0x00000001;
-
     public static final int META_DIR_SOUTH = 0x00000002;
-
-    public static final int META_DIR_EAST = 0000000003;
-
+    public static final int META_DIR_EAST = 0x00000003;
     public static final int META_DIR_WEST = 0x00000000;
-
-    private Icon faceIconUnlit;
-
-    private Icon faceIconLit;
 
     public BlockBloomeryCore(int blockId) {
 
@@ -58,8 +48,6 @@ public class BlockBloomeryCore extends BlockContainer {
     public void registerIcons(IconRegister iconRegister) {
 
         blockIcon = iconRegister.registerIcon("hammermod:bloombrick");
-        faceIconUnlit = iconRegister.registerIcon("hammermod:bloombrick_front_unlit");
-        faceIconLit = iconRegister.registerIcon("hammermod:bloombrick_front_lit");
     }
 
     @Override
@@ -80,14 +68,6 @@ public class BlockBloomeryCore extends BlockContainer {
 
         metadata |= facing;
         world.setBlockMetadataWithNotify(x, y, z, metadata, 2);
-    }
-
-    public Icon getIcon(int side, int metadata) {
-
-        boolean isActive = ((metadata >> 3) == 1);
-        int facing = (metadata & MASK_DIR);
-
-        return (side == getSideFromFacing(facing) ? (isActive ? faceIconLit : faceIconUnlit) : blockIcon);
     }
 
     @Override
@@ -173,7 +153,7 @@ public class BlockBloomeryCore extends BlockContainer {
         super.breakBlock(world, x, y, z, par5, par6);
     }
 
-    private static int getSideFromFacing(int facing) {
+    /*private static int getSideFromFacing(int facing) {
 
         switch (facing) {
             case META_DIR_WEST:
@@ -191,7 +171,7 @@ public class BlockBloomeryCore extends BlockContainer {
             default:
                 return 4;
         }
-    }
+    }*/
 
     private void dropItems(World world, int x, int y, int z) {
 
