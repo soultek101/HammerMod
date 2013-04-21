@@ -11,6 +11,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
+import com.konals.hammermod.HammerMod;
 import com.konals.hammermod.tileentity.TileEntityBloomeryCore;
 import com.konals.hammermod.tileentity.TileEntityBloomeryDummy;
 
@@ -29,7 +30,7 @@ public class BlockBloomeryDummy extends BlockContainer {
     @Override
     public int idDropped(int par1, Random par2Random, int par3) {
 
-        return Block.brick.blockID;
+        return HammerMod.bloomeryBrick.blockID;
     }
 
     @Override
@@ -41,7 +42,7 @@ public class BlockBloomeryDummy extends BlockContainer {
     @Override
     public void registerIcons(IconRegister iconRegister) {
 
-        blockIcon = iconRegister.registerIcon("Bloomery:brick");
+        blockIcon = iconRegister.registerIcon("hammermod:bloombrick");
     }
 
     @Override

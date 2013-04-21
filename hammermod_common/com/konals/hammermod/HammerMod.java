@@ -10,6 +10,7 @@ import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.oredict.OreDictionary;
 
+import com.konals.hammermod.block.BlockBloomeryBrick;
 import com.konals.hammermod.block.BlockBloomeryCore;
 import com.konals.hammermod.block.BlockBloomeryDummy;
 import com.konals.hammermod.handler.HammerModFuelHandler;
@@ -65,6 +66,7 @@ public class HammerMod {
 
     public static Block bloomeryCore = null;
     public static Block bloomeryDummy = null;
+    public static Block bloomeryBrick = null;
 
     @PreInit
     public void preInit(FMLPreInitializationEvent event) {
@@ -96,6 +98,7 @@ public class HammerMod {
 
         bloomeryCore = new BlockBloomeryCore(2700);
         bloomeryDummy = new BlockBloomeryDummy(2701);
+        bloomeryBrick = new BlockBloomeryBrick(2702);
 
         LanguageRegistry.addName(hammerWood, "Wooden Hammer");
         LanguageRegistry.addName(hammerStone, "Stone Hammer");
@@ -109,15 +112,17 @@ public class HammerMod {
         LanguageRegistry.addName(chunkGold, "Gold Chunk");
         LanguageRegistry.addName(chunkDiamond, "Diamond Chunk");
 
-        LanguageRegistry.addName(bloomeryCore, "Multi-Furnace Core");
-        LanguageRegistry.addName(bloomeryDummy, "Multi-Furnace Dummy");
+        LanguageRegistry.addName(bloomeryCore, "Bloomery Core");
+        LanguageRegistry.addName(bloomeryDummy, "Bloomery Dummy");
+        LanguageRegistry.addName(bloomeryBrick, "Bloomery Brick");
 
         LanguageRegistry.instance().addStringLocalization("bloomery.container.bloomery", "Bloomery");
 
         GameRegistry.registerBlock(bloomeryCore, "blockBloomeryCore");
         GameRegistry.registerBlock(bloomeryDummy, "blockBloomeryDummy");
+        GameRegistry.registerBlock(bloomeryBrick, "blockBloomeryBrick");
 
-        GameRegistry.addRecipe(new ItemStack(bloomeryCore, 1), "XXX", "X X", "XXX", 'X', Block.brick);
+        GameRegistry.addRecipe(new ItemStack(bloomeryCore, 1), "XXX", "X X", "XXX", 'X', HammerMod.bloomeryBrick);
 
         GameRegistry.addShapelessRecipe(new ItemStack(chunkCoal, 8), new Object[] {
                 new ItemStack(HammerMod.hammerWood, 1, Short.MAX_VALUE), new ItemStack(Item.coal, 1) });
@@ -180,6 +185,8 @@ public class HammerMod {
                 new ItemStack(chunkDiamond, 1), new ItemStack(chunkDiamond, 1), new ItemStack(chunkDiamond, 1),
                 new ItemStack(chunkDiamond, 1), new ItemStack(chunkDiamond, 1), new ItemStack(chunkDiamond, 1),
                 new ItemStack(chunkDiamond, 1) });
+        
+        GameRegistry.addSmelting(Block.brick.blockID, new ItemStack(HammerMod.bloomeryBrick, 1), 0.1F);
 
         OreDictionary.registerOre("chunkCoal", new ItemStack(chunkCoal));
         OreDictionary.registerOre("chunkCharcoal", new ItemStack(chunkCharcoal));

@@ -1,6 +1,5 @@
 package com.konals.hammermod.tileentity;
 
-import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.Item;
@@ -98,7 +97,7 @@ public class TileEntityBloomeryCore extends TileEntity implements ISidedInventor
                         }
                     }
 
-                    if (blockId != Block.brick.blockID)
+                    if (blockId != HammerMod.bloomeryBrick.blockID)
                         return false;
                 }
             }
@@ -177,7 +176,7 @@ public class TileEntityBloomeryCore extends TileEntity implements ISidedInventor
                     if (blockId != HammerMod.bloomeryDummy.blockID)
                         continue;
 
-                    worldObj.setBlock(x, y, z, Block.brick.blockID);
+                    worldObj.setBlock(x, y, z, HammerMod.bloomeryBrick.blockID);
                     worldObj.markBlockForUpdate(x, y, z);
                 }
             }

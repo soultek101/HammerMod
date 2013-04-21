@@ -57,9 +57,9 @@ public class BlockBloomeryCore extends BlockContainer {
     @Override
     public void registerIcons(IconRegister iconRegister) {
 
-        blockIcon = iconRegister.registerIcon("hammermod:brick");
-        faceIconUnlit = iconRegister.registerIcon("hammermod:bloomery_front_unlit");
-        faceIconLit = iconRegister.registerIcon("hammermod:bloomery_front_lit");
+        blockIcon = iconRegister.registerIcon("hammermod:bloombrick");
+        faceIconUnlit = iconRegister.registerIcon("hammermod:bloombrick_front_unlit");
+        faceIconLit = iconRegister.registerIcon("hammermod:bloombrick_front_lit");
     }
 
     @Override
@@ -103,8 +103,8 @@ public class BlockBloomeryCore extends BlockContainer {
             if (!tileEntity.getIsValid()) {
                 if (tileEntity.checkIfProperlyFormed()) {
                     tileEntity.convertDummies();
-                    if (world.isRemote)
-                        player.sendChatToPlayer("Multi-Block Furnace Created!");
+                    //if (world.isRemote)
+                        //player.sendChatToPlayer("Multi-Block Furnace Created!");
                 }
             }
 
