@@ -9,14 +9,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.oredict.OreDictionary;
 
-import com.konals.hammermod.block.BlockBloomeryBrick;
 import com.konals.hammermod.handler.HammerModFuelHandler;
 import com.konals.hammermod.helper.LogHelper;
 import com.konals.hammermod.item.ChunkCharcoal;
 import com.konals.hammermod.item.ChunkCoal;
-import com.konals.hammermod.item.ChunkDiamond;
-import com.konals.hammermod.item.ChunkGold;
-import com.konals.hammermod.item.ChunkIron;
 import com.konals.hammermod.item.ItemHammerDiamond;
 import com.konals.hammermod.item.ItemHammerGold;
 import com.konals.hammermod.item.ItemHammerIron;
@@ -56,27 +52,18 @@ public class HammerMod {
 
     public static Item chunkCoal;
     public static Item chunkCharcoal;
-    public static Item chunkIron;
-    public static Item chunkGold;
-    public static Item chunkDiamond;
 
     public static Block bloomeryBrick = null;
 
     @PreInit
     public void preInit(FMLPreInitializationEvent event) {
 
-        /*Configuration configFile = new Configuration(event.getSuggestedConfigurationFile());
-        configFile.load();
-
-        if (configFile.hasChanged())
-            configFile.save();*/
     }
 
     @Init
     public void load(FMLInitializationEvent event) {
 
         proxy.registerRenderers();
-        proxy.registerTileEntities();
 
         hammerWood = new ItemHammerWood(8301, EnumToolMaterial.WOOD);
         hammerStone = new ItemHammerStone(8302, EnumToolMaterial.STONE);
@@ -86,11 +73,6 @@ public class HammerMod {
 
         chunkCoal = new ChunkCoal(8306);
         chunkCharcoal = new ChunkCharcoal(8307);
-        chunkIron = new ChunkIron(8308);
-        chunkGold = new ChunkGold(8309);
-        chunkDiamond = new ChunkDiamond(8310);
-
-        bloomeryBrick = new BlockBloomeryBrick(2702);
 
         LanguageRegistry.addName(hammerWood, "Wooden Hammer");
         LanguageRegistry.addName(hammerStone, "Stone Hammer");
@@ -100,15 +82,6 @@ public class HammerMod {
 
         LanguageRegistry.addName(chunkCoal, "Coal Chunk");
         LanguageRegistry.addName(chunkCharcoal, "Charcoal Chunk");
-        LanguageRegistry.addName(chunkIron, "Iron Chunk");
-        LanguageRegistry.addName(chunkGold, "Gold Chunk");
-        LanguageRegistry.addName(chunkDiamond, "Diamond Chunk");
-
-        LanguageRegistry.addName(bloomeryBrick, "Bloomery Brick");
-
-        LanguageRegistry.instance().addStringLocalization("bloomery.container.bloomery", "Bloomery");
-
-        GameRegistry.registerBlock(bloomeryBrick, "blockBloomeryBrick");
 
         GameRegistry.addShapelessRecipe(new ItemStack(chunkCoal, 8), new Object[] {
                 new ItemStack(HammerMod.hammerWood, 1, Short.MAX_VALUE), new ItemStack(Item.coal, 1) });
@@ -133,23 +106,6 @@ public class HammerMod {
         GameRegistry.addShapelessRecipe(new ItemStack(chunkCharcoal, 8), new Object[] {
                 new ItemStack(HammerMod.hammerDiamond, 1, Short.MAX_VALUE), new ItemStack(Item.coal, 1, 1) });
 
-        GameRegistry.addShapelessRecipe(new ItemStack(chunkIron, 8), new Object[] {
-                new ItemStack(HammerMod.hammerStone, 1, Short.MAX_VALUE), new ItemStack(Block.oreIron, 1) });
-        GameRegistry.addShapelessRecipe(new ItemStack(chunkIron, 8), new Object[] {
-                new ItemStack(HammerMod.hammerIron, 1, Short.MAX_VALUE), new ItemStack(Block.oreIron, 1) });
-        GameRegistry.addShapelessRecipe(new ItemStack(chunkIron, 8), new Object[] {
-                new ItemStack(HammerMod.hammerDiamond, 1, Short.MAX_VALUE), new ItemStack(Block.oreIron, 1) });
-
-        GameRegistry.addShapelessRecipe(new ItemStack(chunkGold, 8), new Object[] {
-                new ItemStack(HammerMod.hammerIron, 1, Short.MAX_VALUE), new ItemStack(Block.oreGold, 1) });
-        GameRegistry.addShapelessRecipe(new ItemStack(chunkGold, 8), new Object[] {
-                new ItemStack(HammerMod.hammerDiamond, 1, Short.MAX_VALUE), new ItemStack(Block.oreGold, 1) });
-
-        GameRegistry.addShapelessRecipe(new ItemStack(chunkDiamond, 8), new Object[] {
-                new ItemStack(HammerMod.hammerIron, 1, Short.MAX_VALUE), new ItemStack(Block.oreDiamond, 1) });
-        GameRegistry.addShapelessRecipe(new ItemStack(chunkDiamond, 8), new Object[] {
-                new ItemStack(HammerMod.hammerDiamond, 1, Short.MAX_VALUE), new ItemStack(Block.oreDiamond, 1) });
-
         GameRegistry.addShapelessRecipe(new ItemStack(Item.coal, 1), new Object[] { new ItemStack(chunkCoal, 1),
                 new ItemStack(chunkCoal, 1), new ItemStack(chunkCoal, 1), new ItemStack(chunkCoal, 1), new ItemStack(chunkCoal, 1),
                 new ItemStack(chunkCoal, 1), new ItemStack(chunkCoal, 1), new ItemStack(chunkCoal, 1) });
@@ -159,26 +115,8 @@ public class HammerMod {
                 new ItemStack(chunkCharcoal, 1), new ItemStack(chunkCharcoal, 1), new ItemStack(chunkCharcoal, 1),
                 new ItemStack(chunkCharcoal, 1) });
 
-        GameRegistry.addShapelessRecipe(new ItemStack(Block.oreIron, 1), new Object[] { new ItemStack(chunkIron, 1),
-                new ItemStack(chunkIron, 1), new ItemStack(chunkIron, 1), new ItemStack(chunkIron, 1), new ItemStack(chunkIron, 1),
-                new ItemStack(chunkIron, 1), new ItemStack(chunkIron, 1), new ItemStack(chunkIron, 1) });
-
-        GameRegistry.addShapelessRecipe(new ItemStack(Block.oreGold, 1), new Object[] { new ItemStack(chunkGold, 1),
-                new ItemStack(chunkGold, 1), new ItemStack(chunkGold, 1), new ItemStack(chunkGold, 1), new ItemStack(chunkGold, 1),
-                new ItemStack(chunkGold, 1), new ItemStack(chunkGold, 1), new ItemStack(chunkGold, 1) });
-
-        GameRegistry.addShapelessRecipe(new ItemStack(Block.oreDiamond, 1), new Object[] { new ItemStack(chunkDiamond, 1),
-                new ItemStack(chunkDiamond, 1), new ItemStack(chunkDiamond, 1), new ItemStack(chunkDiamond, 1),
-                new ItemStack(chunkDiamond, 1), new ItemStack(chunkDiamond, 1), new ItemStack(chunkDiamond, 1),
-                new ItemStack(chunkDiamond, 1) });
-        
-        GameRegistry.addSmelting(Block.brick.blockID, new ItemStack(HammerMod.bloomeryBrick, 1), 0.1F);
-
         OreDictionary.registerOre("chunkCoal", new ItemStack(chunkCoal));
         OreDictionary.registerOre("chunkCharcoal", new ItemStack(chunkCharcoal));
-        OreDictionary.registerOre("chunkIron", new ItemStack(chunkIron));
-        OreDictionary.registerOre("chunkGold", new ItemStack(chunkGold));
-        OreDictionary.registerOre("chunkDiamond", new ItemStack(chunkDiamond));
 
         MinecraftForge.setToolClass(hammerWood, "pickaxe", 0);
         MinecraftForge.setToolClass(hammerStone, "pickaxe", 1);
