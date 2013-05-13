@@ -35,14 +35,14 @@ import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
-@Mod(modid = "HammerMod", name = "HammerMod", version = "1.0")
+@Mod(modid = "HammerMod", name = "HammerMod", version = "1.2")
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 public class HammerMod {
 
     @Instance("HammerMod")
     public static HammerMod instance;
 
-    @SidedProxy(clientSide = "com.konals.hammermod.proxy.ClientProxy", serverSide = "com.konals.hammermod.proxy.CommonProxy")
+    @SidedProxy(clientSide = "konals.mods.hammermod.proxy.ClientProxy", serverSide = "konals.mods.hammermod.proxy.CommonProxy")
     public static CommonProxy proxy;
 
     public static Item hammerWood;
@@ -53,8 +53,6 @@ public class HammerMod {
 
     public static Item chunkCoal;
     public static Item chunkCharcoal;
-
-    public static Block bloomeryBrick = null;
 
     @PreInit
     public void preInit(FMLPreInitializationEvent event) {

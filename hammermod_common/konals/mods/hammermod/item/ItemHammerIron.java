@@ -17,6 +17,6 @@ public class ItemHammerIron extends ItemHammer {
 
     public void updateIcons(IconRegister iconRegister) {
 
-        iconIndex = iconRegister.registerIcon("hammermod:hammeriron");
+        itemIcon = iconRegister.registerIcon("hammermod:hammeriron");
     }
 }

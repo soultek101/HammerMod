@@ -17,6 +17,6 @@ public class ChunkCoal extends Item {
 
     public void updateIcons(IconRegister iconRegister) {
 
-        iconIndex = iconRegister.registerIcon("hammermod:chunkcoal");
+        itemIcon = iconRegister.registerIcon("hammermod:chunkcoal");
     }
 }
