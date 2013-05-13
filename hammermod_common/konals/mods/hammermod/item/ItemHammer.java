@@ -1,6 +1,5 @@
 package konals.mods.hammermod.item;
 
-import konals.mods.hammermod.HammerMod;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.item.EntityItem;
@@ -34,7 +33,7 @@ public class ItemHammer extends ItemTool {
         itemstack.damageItem(1, entityplayer);
         if (world.getBlockId(x, y, z) == Block.oreCoal.blockID) {
 
-            ItemStack itemstack1 = new ItemStack(HammerMod.chunkCoal, 8);
+            ItemStack itemstack1 = new ItemStack(ModItems.chunkCoal, 8);
             double xrand = (double) (world.rand.nextFloat() * 0.7F) + (double) (0.3F) * 0.5D;
             double yrand = (double) (world.rand.nextFloat() * 0.7F) + (double) (0.3F) * 0.5D;
             double zrand = (double) (world.rand.nextFloat() * 0.7F) + (double) (0.3F) * 0.5D;

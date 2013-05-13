@@ -1,5 +1,6 @@
 package konals.mods.hammermod.item;
 
+import konals.mods.hammermod.lib.Strings;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -10,7 +11,7 @@ public class ChunkCoal extends Item {
 
         super(i);
         maxStackSize = 64;
-        setUnlocalizedName("Coal Chunk");
+        setUnlocalizedName(Strings.COAL_CHUNK_NAME);
         this.setCreativeTab(CreativeTabs.tabMaterials);
 
     }
