@@ -79,9 +79,9 @@ public class ModItems {
                 new ItemStack(chunkCharcoal, 1), new ItemStack(chunkCharcoal, 1), new ItemStack(chunkCharcoal, 1),
                 new ItemStack(chunkCharcoal, 1) });
         
-        GameRegistry.addRecipe(new ItemStack(Block.torchWood), new Object[] { "ccc", "csc", "ccc", Character.valueOf('c'),
+        GameRegistry.addRecipe(new ItemStack(Block.torchWood, 4), new Object[] { "ccc", "csc", "ccc", Character.valueOf('c'),
             ModItems.chunkCoal, Character.valueOf('s'), Item.stick });
-        GameRegistry.addRecipe(new ItemStack(Block.torchWood), new Object[] { "ccc", "csc", "ccc", Character.valueOf('c'),
+        GameRegistry.addRecipe(new ItemStack(Block.torchWood, 4), new Object[] { "ccc", "csc", "ccc", Character.valueOf('c'),
             ModItems.chunkCharcoal, Character.valueOf('s'), Item.stick });
 
         OreDictionary.registerOre("chunkCoal", new ItemStack(chunkCoal));
