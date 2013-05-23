@@ -18,6 +18,6 @@ public class ItemHammerStone extends ItemHammer {
 
     public void updateIcons(IconRegister iconRegister) {
 
-        itemIcon = iconRegister.registerIcon("hammermod:hammerstone");
+        itemIcon = iconRegister.registerIcon("hammermod:hammerStone");
     }
 }

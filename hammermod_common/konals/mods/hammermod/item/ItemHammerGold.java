@@ -18,6 +18,6 @@ public class ItemHammerGold extends ItemHammer {
 
     public void updateIcons(IconRegister iconRegister) {
 
-        itemIcon = iconRegister.registerIcon("hammermod:hammergold");
+        itemIcon = iconRegister.registerIcon("hammermod:hammerGold");
     }
 }
