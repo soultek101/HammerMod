@@ -11,7 +11,7 @@ public class ItemHammerGold extends ItemHammer {
 
         super(i, enumToolMaterial);
         this.maxStackSize = 1;
-        this.setMaxDamage(33);
+        this.setMaxDamage(44);
         this.setUnlocalizedName(Strings.HAMMER_GOLD_NAME);
         this.setCreativeTab(CreativeTabs.tabTools);
     }

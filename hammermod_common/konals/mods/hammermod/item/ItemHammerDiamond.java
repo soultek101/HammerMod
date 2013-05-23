@@ -11,7 +11,7 @@ public class ItemHammerDiamond extends ItemHammer {
 
         super(i, enumToolMaterial);
         this.maxStackSize = 1;
-        this.setMaxDamage(1562);
+        this.setMaxDamage(2082);
         this.setUnlocalizedName(Strings.HAMMER_DIAMOND_NAME);
         this.setCreativeTab(CreativeTabs.tabTools);
     }

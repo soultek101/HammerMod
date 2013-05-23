@@ -11,7 +11,7 @@ public class ItemHammerWood extends ItemHammer {
 
         super(i, enumToolMaterial);
         this.maxStackSize = 1;
-        this.setMaxDamage(60);
+        this.setMaxDamage(80);
         this.setUnlocalizedName(Strings.HAMMER_WOOD_NAME);
         this.setCreativeTab(CreativeTabs.tabTools);
     }

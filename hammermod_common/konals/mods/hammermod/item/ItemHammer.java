@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumToolMaterial;
@@ -16,18 +17,25 @@ import net.minecraft.world.World;
 
 public class ItemHammer extends ItemTool {
 
+    public int weaponDamage;
     Random randomGen = new Random();
     public static final Block[] blocksEffectiveAgainst = new Block[] { Block.cobblestone, Block.stoneDoubleSlab, Block.stoneSingleSlab,
             Block.stone, Block.sandStone, Block.cobblestoneMossy, Block.oreIron, Block.blockIron, Block.oreCoal, Block.blockGold,
             Block.oreGold, Block.oreDiamond, Block.blockDiamond, Block.ice, Block.netherrack, Block.oreLapis, Block.blockLapis,
             Block.oreRedstone, Block.oreRedstoneGlowing, Block.rail, Block.railDetector, Block.railPowered, Block.railActivator };
 
-    protected ItemHammer(int par1, EnumToolMaterial material) {
+    public ItemHammer(int par1, EnumToolMaterial material) {
 
         super(par1, 2, material, blocksEffectiveAgainst);
         setContainerItem(this);
+        this.weaponDamage = 1 + material.getDamageVsEntity();
     }
-
+    
+    public int getDamageVsEntity(Entity entity)
+    {
+        return this.weaponDamage;
+    }
+    
     public boolean onBlockStartBreak(ItemStack itemstack, int x, int y, int z, EntityPlayer entityplayer) {
 
         World world = entityplayer.worldObj;

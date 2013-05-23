@@ -11,7 +11,7 @@ public class ItemHammerStone extends ItemHammer {
 
         super(i, enumToolMaterial);
         this.maxStackSize = 1;
-        this.setMaxDamage(132);
+        this.setMaxDamage(176);
         this.setUnlocalizedName(Strings.HAMMER_STONE_NAME);
         this.setCreativeTab(CreativeTabs.tabTools);
     }
