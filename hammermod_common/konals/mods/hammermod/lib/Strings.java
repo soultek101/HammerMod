@@ -10,4 +10,6 @@ public class Strings {
     public static final String HAMMER_IRON_NAME = "hammerIron";
     public static final String HAMMER_GOLD_NAME = "hammerGold";
     public static final String HAMMER_DIAMOND_NAME = "hammerDiamond";
+    
+    public static final String PLATE_IRON_NAME = "armorPlateIron";
 }
