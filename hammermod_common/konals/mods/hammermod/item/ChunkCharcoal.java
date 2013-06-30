@@ -11,7 +11,7 @@ public class ChunkCharcoal extends Item {
 
         super(i);
         maxStackSize = 64;
-        setUnlocalizedName(Strings.CHARCOAL_CHUNK_NAME);
+        setUnlocalizedName(Strings.CHUNK_CHARCOAL_NAME);
         this.setCreativeTab(CreativeTabs.tabMaterials);
 
     }

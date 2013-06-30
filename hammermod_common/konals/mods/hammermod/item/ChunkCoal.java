@@ -11,7 +11,7 @@ public class ChunkCoal extends Item {
 
         super(i);
         maxStackSize = 64;
-        setUnlocalizedName(Strings.COAL_CHUNK_NAME);
+        setUnlocalizedName(Strings.CHUNK_COAL_NAME);
         this.setCreativeTab(CreativeTabs.tabMaterials);
 
     }

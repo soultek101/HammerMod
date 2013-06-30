@@ -27,7 +27,7 @@ public class ModItems {
     public static Item chunkCoal;
     public static Item chunkCharcoal;
     
-    public static Item itemPlateIron;
+    //public static Item itemPlateIron;
     
     public static void init() {
 
@@ -40,7 +40,7 @@ public class ModItems {
         chunkCoal = new ChunkCoal(ItemIds.CHUNK_COAL);
         chunkCharcoal = new ChunkCharcoal(ItemIds.CHUNK_CHARCOAL);
         
-        itemPlateIron = new ItemPlateIron(ItemIds.ARMOR_PLATE_IRON);
+        //itemPlateIron = new ItemPlateIron(ItemIds.ARMOR_PLATE_IRON);
         
         LanguageRegistry.addName(hammerWood, "Wooden Hammer");
         LanguageRegistry.addName(hammerStone, "Stone Hammer");
@@ -51,7 +51,7 @@ public class ModItems {
         LanguageRegistry.addName(chunkCoal, "Coal Chunk");
         LanguageRegistry.addName(chunkCharcoal, "Charcoal Chunk");
         
-        LanguageRegistry.addName(itemPlateIron, "Iron Plate");
+        //LanguageRegistry.addName(itemPlateIron, "Iron Plate");
 
         GameRegistry.addShapelessRecipe(new ItemStack(chunkCoal, 8), new Object[] {
                 new ItemStack(hammerWood, 1, Short.MAX_VALUE), new ItemStack(Item.coal, 1) });
@@ -90,17 +90,17 @@ public class ModItems {
         GameRegistry.addRecipe(new ItemStack(Block.torchWood, 4), new Object[] { "ccc", "csc", "ccc", Character.valueOf('c'),
             ModItems.chunkCharcoal, Character.valueOf('s'), Item.stick });
         
-        GameRegistry.addShapelessRecipe(new ItemStack(itemPlateIron, 1), new Object[] {
-            new ItemStack(hammerIron, 1, Short.MAX_VALUE), new ItemStack(Item.ingotIron, 1) });
-        GameRegistry.addShapelessRecipe(new ItemStack(itemPlateIron, 1), new Object[] {
-            new ItemStack(hammerGold, 1, Short.MAX_VALUE), new ItemStack(Item.ingotIron, 1) });
-        GameRegistry.addShapelessRecipe(new ItemStack(itemPlateIron, 1), new Object[] {
-            new ItemStack(hammerDiamond, 1, Short.MAX_VALUE), new ItemStack(Item.ingotIron, 1) });
+        //GameRegistry.addShapelessRecipe(new ItemStack(itemPlateIron, 1), new Object[] {
+        //    new ItemStack(hammerIron, 1, Short.MAX_VALUE), new ItemStack(Item.ingotIron, 1) });
+        //GameRegistry.addShapelessRecipe(new ItemStack(itemPlateIron, 1), new Object[] {
+        //    new ItemStack(hammerGold, 1, Short.MAX_VALUE), new ItemStack(Item.ingotIron, 1) });
+        //GameRegistry.addShapelessRecipe(new ItemStack(itemPlateIron, 1), new Object[] {
+        //    new ItemStack(hammerDiamond, 1, Short.MAX_VALUE), new ItemStack(Item.ingotIron, 1) });
         
-        GameRegistry.addRecipe(new ItemStack(Item.plateIron, 1), new Object[] { "I I", "III", Character.valueOf('I'), ModItems.itemPlateIron});
-        GameRegistry.addRecipe(new ItemStack(Item.helmetIron, 1), new Object[] { "III", Character.valueOf('I'), ModItems.itemPlateIron});
-        GameRegistry.addRecipe(new ItemStack(Item.bootsIron , 1), new Object[] { "I I", Character.valueOf('I'), ModItems.itemPlateIron});
-        GameRegistry.addRecipe(new ItemStack(Item.legsIron, 1), new Object[] { "I I", "I I", Character.valueOf('I'), ModItems.itemPlateIron});
+        //GameRegistry.addRecipe(new ItemStack(Item.plateIron, 1), new Object[] { "I I", "III", Character.valueOf('I'), ModItems.itemPlateIron});
+        //GameRegistry.addRecipe(new ItemStack(Item.helmetIron, 1), new Object[] { "III", Character.valueOf('I'), ModItems.itemPlateIron});
+        //GameRegistry.addRecipe(new ItemStack(Item.bootsIron , 1), new Object[] { "I I", Character.valueOf('I'), ModItems.itemPlateIron});
+        //GameRegistry.addRecipe(new ItemStack(Item.legsIron, 1), new Object[] { "I I", "I I", Character.valueOf('I'), ModItems.itemPlateIron});
 
         OreDictionary.registerOre("chunkCoal", new ItemStack(chunkCoal));
         OreDictionary.registerOre("chunkCharcoal", new ItemStack(chunkCharcoal));
