@@ -30,7 +30,6 @@ public class HammerMod {
     @PreInit
     public void preInit(FMLPreInitializationEvent event) {
         
-        ModItems.init();
         Configuration config = new Configuration(event.getSuggestedConfigurationFile());
         
         config.load();
@@ -44,6 +43,8 @@ public class HammerMod {
         ItemIds.CHUNK_CHARCOAL = config.getItem(Strings.CHUNK_CHARCOAL_NAME, ItemIds.CHUNK_CHARCOAL_DEFAULT).getInt(ItemIds.CHUNK_CHARCOAL_DEFAULT);
         
         config.save();
+        
+        ModItems.init();
     }
 
     @Init

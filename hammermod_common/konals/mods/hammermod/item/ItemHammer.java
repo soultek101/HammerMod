@@ -7,6 +7,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumToolMaterial;
@@ -19,10 +20,7 @@ public class ItemHammer extends ItemTool {
 
     public int weaponDamage;
     Random randomGen = new Random();
-    public static final Block[] blocksEffectiveAgainst = new Block[] { Block.cobblestone, Block.stoneDoubleSlab, Block.stoneSingleSlab,
-            Block.stone, Block.sandStone, Block.cobblestoneMossy, Block.oreIron, Block.blockIron, Block.oreCoal, Block.blockGold,
-            Block.oreGold, Block.oreDiamond, Block.blockDiamond, Block.ice, Block.netherrack, Block.oreLapis, Block.blockLapis,
-            Block.oreRedstone, Block.oreRedstoneGlowing, Block.rail, Block.railDetector, Block.railPowered, Block.railActivator };
+    public static final Block[] blocksEffectiveAgainst = new Block[] {};
 
     public ItemHammer(int par1, EnumToolMaterial material) {
 
@@ -34,6 +32,22 @@ public class ItemHammer extends ItemTool {
     public int getDamageVsEntity(Entity entity)
     {
         return this.weaponDamage;
+    }
+    
+    public boolean hitEntity(ItemStack itemStack, EntityLiving par2EntityLiving, EntityLiving par3EntityLiving)
+    {
+        itemStack.damageItem(1, par3EntityLiving);
+        return true;
+    }
+    
+    public boolean onBlockDestroyed(ItemStack itemStack, World world, int i, int x, int y, int z, EntityLiving entityLiving)
+    {
+        if ((double)Block.blocksList[i].getBlockHardness(world, x, y, z) != 0.0D)
+        {
+            itemStack.damageItem(1, entityLiving);
+        }
+
+        return true;
     }
     
     public boolean onBlockStartBreak(ItemStack itemstack, int x, int y, int z, EntityPlayer entityplayer) {
@@ -125,27 +139,41 @@ public class ItemHammer extends ItemTool {
         }
     }
 
-    public boolean canHarvestBlock(Block par1Block) {
-
-        return par1Block == Block.obsidian ? this.toolMaterial.getHarvestLevel() == 3 : (par1Block != Block.blockDiamond
-                && par1Block != Block.oreDiamond ? (par1Block != Block.oreEmerald && par1Block != Block.blockEmerald
-                ? (par1Block != Block.blockGold && par1Block != Block.oreGold ? (par1Block != Block.blockIron
-                && par1Block != Block.oreIron ? (par1Block != Block.blockLapis && par1Block != Block.oreLapis
-                ? (par1Block != Block.oreRedstone && par1Block != Block.oreRedstoneGlowing
-                ? (par1Block.blockMaterial == Material.rock ? true : (par1Block.blockMaterial == Material.iron ? true
-                : par1Block.blockMaterial == Material.anvil)) : this.toolMaterial.getHarvestLevel() >= 2)
-                : this.toolMaterial.getHarvestLevel() >= 1) : this.toolMaterial.getHarvestLevel() >= 1) : this.toolMaterial
-                .getHarvestLevel() >= 2) : this.toolMaterial.getHarvestLevel() >= 2) : this.toolMaterial.getHarvestLevel() >= 2);
+    public boolean canHarvestBlock(Block block)
+    {
+        if (block.blockMaterial.isToolNotRequired()) {
+            
+            return true;
+        }
+        for (Material m : getEffectiveMaterials()) {
+            
+            if (m == block.blockMaterial) {
+                
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    protected Material[] getEffectiveMaterials() {
+        
+        return new Material[] { Material.rock, Material.iron, Material.ice, Material.glass, Material.piston, Material.anvil, Material.circuits };
     }
 
-    public float getStrVsBlock(ItemStack par1ItemStack, Block par2Block) {
-
-        return par2Block != null
-                && (par2Block.blockMaterial == Material.iron || par2Block.blockMaterial == Material.anvil || par2Block.blockMaterial == Material.rock)
-                ? this.efficiencyOnProperMaterial : super.getStrVsBlock(par1ItemStack, par2Block);
+    public float getStrVsBlock(ItemStack itemStack, Block block, int meta) {
+        
+        Material[] materials = getEffectiveMaterials();
+        for (int i = 0; i < materials.length; i++) {
+            
+            if (materials[i] == block.blockMaterial) {
+                
+                return this.efficiencyOnProperMaterial;
+            }
+        }
+        return 1.0f;
     }
 
-    @Override
+    @Override   
     public ItemStack getContainerItemStack(ItemStack itemStack) {
 
         itemStack.setItemDamage(itemStack.getItemDamage() + 1);
